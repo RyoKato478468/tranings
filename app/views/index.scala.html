@@ -1,0 +1,25 @@
+@()
+
+@main("bbs") {
+  <div class ="contrainer">
+    @helper.form(action = routes.HomeController.index()){
+    <input type="text" class="form-control" placeholder="name">
+    <input type="text" class="form-control" placeholder="title">
+    <input type="text" class="form-control" placeholder="message">
+    <button type="submit">投稿</button>
+    }
+    <table>
+      <tr>
+        <th>名前</th>
+        <th>タイトル</th>
+        <th>メッセージ</th>
+        <th>作成日時</th>
+        <th>更新日時</th>
+      </tr>
+      <tr>
+
+
+      </tr>
+    </table>
+  </div>
+}
