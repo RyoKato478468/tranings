@@ -4,7 +4,6 @@ import java.util.*;
 import io.ebean.Finder;
 import tables.*;
 
-
 public class Where {
 
     T_User createUser = new T_User();

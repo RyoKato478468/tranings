@@ -26,10 +26,6 @@ public class UserController extends Controller {
         Form<GetData> GetDataForm = formFactory.form(GetData.class).bindFromRequest(request);
         GetData GetData = GetDataForm.get();
 
-        System.out.println("\n\n\n\n\n\n");
-        System.out.println(request);    //リクエストの取得自体は出来ている
-        System.out.println("\n\n\n\n\n\n");
-
         Where wh = new Where();
         wh.createUser(GetData);
 

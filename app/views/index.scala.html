@@ -1,8 +1,8 @@
 @import play.mvc.Http.Request;
 @import tables.T_User;
-@import tables.find.PostData;
+@import tables.find.GetData;
 
-@(t_user:List[T_User], form: Form[PostData])
+@(t_user:List[T_User], form: Form[GetData])
 
 @views.html.main("bbs") {
   <div class ="contrainer">

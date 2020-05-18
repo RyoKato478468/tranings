@@ -1,7 +1,5 @@
 package controllers;
 
-import models.UserItem;
-import org.h2.engine.User;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -19,10 +17,10 @@ public class Application extends Controller{
     FormFactory formFactory;
 
     public Result index(Http.Request request) {
-        Form<PostData> postDataForm= formFactory.form(PostData.class).bindFromRequest(request);
-        PostData postData = postDataForm.get();
+        Form<GetData> getDataForm= formFactory.form(GetData.class).bindFromRequest(request);
+        GetData getData = getDataForm.get();
 
-        List<T_User> t_user = Where.find(postData.input);
-        return ok(views.html.index.render(t_user,postDataForm));
+        List<T_User> t_user = Where.find(getData.input);
+        return ok(views.html.index.render(t_user,getDataForm));
     }
 }
