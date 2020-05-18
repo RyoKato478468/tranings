@@ -4,11 +4,12 @@ import java.util.*;
 
 import io.ebean.Model;
 import io.ebean.annotation.CreatedTimestamp;
+import io.ebean.annotation.UpdatedTimestamp;
+import play.data.format.Formats;
 
-import javax.persistence.Entity;
-import javax.persistence.Version;
+import javax.persistence.*;
 
-@Entity
+@MappedSuperclass
 public abstract class BaseTable extends Model {
 
     @CreatedTimestamp

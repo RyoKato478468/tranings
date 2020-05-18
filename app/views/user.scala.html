@@ -1,0 +1,31 @@
+@import play.mvc.Http.Request
+@import tables.T_User;
+@import helper._
+
+@views.html.main("新規登録") {
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>名前</th>
+                    <th>学年</th>
+                    <th>身長</th>
+                    <th>好きな食べ物</th>
+                </tr>
+                <tr>
+                @helper.form(action = routes.UserController.create){
+                    <input type="hidden" name="id">
+                    <td><input type="text" class="form_control" name="name"></td>
+                    <td><input type="text" class="form_control" name="schoolYear"></td>
+                    <td><input type="text" class="form_control" name="height"></td>
+                    <td><input type="text" class="form_control" name="likeFood"></td>
+                    <td><input type="submit" value="登録" /></td>
+                }
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+}

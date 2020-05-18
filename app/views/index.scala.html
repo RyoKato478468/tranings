@@ -1,25 +1,32 @@
-@()
+@import play.mvc.Http.Request;
+@import tables.T_User;
+@import tables.find.PostData;
 
-@main("bbs") {
+@(t_user:List[T_User], form: Form[PostData])
+
+@views.html.main("bbs") {
   <div class ="contrainer">
-    @helper.form(action = routes.HomeController.index()){
-    <input type="text" class="form-control" placeholder="name">
-    <input type="text" class="form-control" placeholder="title">
-    <input type="text" class="form-control" placeholder="message">
-    <button type="submit">投稿</button>
-    }
+    <a href = "@routes.UserController.init">新規作成</a>
+    <br>
     <table>
       <tr>
         <th>名前</th>
-        <th>タイトル</th>
-        <th>メッセージ</th>
+        <th>学年</th>
+        <th>身長</th>
+        <th>好きな食べ物</th>
         <th>作成日時</th>
         <th>更新日時</th>
       </tr>
-      <tr>
-
-
-      </tr>
+      @for(t_user<-t_user){
+        <tr>
+          <td>@t_user.name</td>
+          <td>@t_user.schoolYear</td>
+          <td>@t_user.height</td>
+          <td>@t_user.likeFood</td>
+          <td>@t_user.createdAt</td>
+          <td>@t_user.updatedAt</td>
+        </tr>
+      }
     </table>
   </div>
 }
