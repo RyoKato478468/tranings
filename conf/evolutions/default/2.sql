@@ -3,7 +3,7 @@
 
 insert into t_user values(
 1,
-'あ',+
+'firstUser',+
 2,
 192,
 'バナナ',
@@ -12,7 +12,7 @@ CURRENT_TIMESTAMP()
 ),
 (
 2,
-'い',
+'secondUser',
 3,
 168,
 'ケーキ',

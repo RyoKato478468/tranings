@@ -1,27 +1,15 @@
 package tables.find;
 
 import java.util.*;
+
+import io.ebean.DB;
 import io.ebean.Finder;
 import tables.*;
 
 public class Where {
 
-    T_User createUser = new T_User();
-
-    public void createUser(GetData list){
-
-        this.createUser.id = list.id;
-        this.createUser.name = list.name;
-        this.createUser.schoolYear = list.schoolYear;
-        this.createUser.height = list.height;
-        this.createUser.likeFood = list.likeFood;
-
-        createUser.save();
-    }
-
     public static Finder<Long, T_User> finder = new Finder<Long, T_User>(T_User.class);
 
-    //取得用
     public static List<T_User> find(String str) {
         if (str != null) {
             return finder.query().where().ilike("name", "%" + str + "%").findList();
@@ -29,4 +17,39 @@ public class Where {
             return finder.all();
         }
     }
+
+    T_User userInfo = new T_User();
+        public void selectId(int id){
+    }
+
+    public static List<T_User> search(String searchWord){
+        List<T_User> list = DB.find(T_User.class).where().eq("name",searchWord).findList();
+
+        return list;
+    }
+
+    public void insertOrUpdate(SubmitData list,boolean isEdit) {
+
+        this.userInfo.id = list.id;
+        this.userInfo.name = list.name;
+        this.userInfo.schoolYear = list.schoolYear;
+        this.userInfo.height = list.height;
+        this.userInfo.likeFood = list.likeFood;
+        this.userInfo.updatedAt = new Date();
+
+        if (isEdit) {
+            userInfo.update();
+        } else {
+            this.userInfo.createdAt = new Date();
+            userInfo.save();
+        }
+    }
+
+    public void delete(int id){
+
+        this.userInfo.id = id;
+        userInfo.delete();
+    }
+
+
 }

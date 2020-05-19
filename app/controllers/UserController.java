@@ -15,19 +15,28 @@ public class UserController extends Controller {
     @Inject
     FormFactory formFactory;
 
-    public Result init(Http.Request request){
-        //postデータ用に空のインスタンス生成
-        Form<T_User> t_userForm = formFactory.form(T_User.class).bindFromRequest(request);
-
-        return ok(views.html.user.render());
+    public Result init(int id){
+        boolean isEdit = false;
+        if(id != 0){
+            isEdit = true;
+        }
+        return ok(views.html.user.render(id,isEdit));
     }
 
-    public Result create(Http.Request request){
-        Form<GetData> GetDataForm = formFactory.form(GetData.class).bindFromRequest(request);
-        GetData GetData = GetDataForm.get();
+    public Result insertOrUpdate(Http.Request request,boolean isEdit,int id) {
+
+        Form<SubmitData> submitDataForm = formFactory.form(SubmitData.class).bindFromRequest(request);
+        SubmitData submitData = submitDataForm.get();
 
         Where wh = new Where();
-        wh.createUser(GetData);
+        wh.insertOrUpdate(submitData,isEdit);
+
+        return redirect(routes.Application.index());
+    }
+
+    public Result delete(Http.Request request,int id){
+        Where wh = new Where();
+        wh.delete(id);
 
         return redirect(routes.Application.index());
     }

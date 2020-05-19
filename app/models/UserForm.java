@@ -2,22 +2,26 @@ package models;
 
 import javax.inject.Inject;
 
+import io.ebean.DB;
+import org.springframework.util.StringUtils;
 import play.data.*;
 import play.mvc.*;
+import tables.T_User;
+import tables.find.*;
+import java.util.*;
+import io.ebean.Finder;
 
-import tables.find.GetData;
 
 public class UserForm {
 
     @Inject
     public FormFactory formFactory;
 
-    public Form<GetData> getDataForm;
-    public GetData getData;
+    public Form<SubmitData> submitDataForm;
+    public SubmitData submitData;
 
     public UserForm(Http.Request request){
-        this.getDataForm = formFactory.form(GetData.class).bindFromRequest(request);
-        this.getData = getDataForm.get();
+        this.submitDataForm = formFactory.form(SubmitData.class).bindFromRequest(request);
+        this.submitData = submitDataForm.get();
     }
-
 }

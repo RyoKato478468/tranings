@@ -1,5 +1,6 @@
 package controllers;
 
+import models.UserForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -17,10 +18,19 @@ public class Application extends Controller{
     FormFactory formFactory;
 
     public Result index(Http.Request request) {
-        Form<GetData> getDataForm= formFactory.form(GetData.class).bindFromRequest(request);
-        GetData getData = getDataForm.get();
+        Form<SubmitData> submitDataForm= formFactory.form(SubmitData.class).bindFromRequest(request);
+        SubmitData submitData = submitDataForm.get();
 
-        List<T_User> t_user = Where.find(getData.input);
-        return ok(views.html.index.render(t_user,getDataForm));
+        List<T_User> t_user = Where.find(submitData.name);
+        return ok(views.html.index.render(t_user));
+    }
+
+    public Result search(Http.Request request){
+        /*String searchWord = formFactory.form(String.class).bindFromRequest(request);
+        List<T_User> t_user = Where.search(searchWord);
+        return ok(views.html.index.render(t_user));*/
+
+        return redirect(routes.Application.index());
+
     }
 }

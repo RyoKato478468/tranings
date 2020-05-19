@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table t_user (
-  id                            bigint auto_increment not null,
+  id                            integer auto_increment not null,
   name                          varchar(255) not null,
   school_year                   integer not null,
   height                        integer not null,

@@ -6,7 +6,7 @@ import tables.T_User;
 
 public class UserItem {
 
-    Long id;
+    int id;
     String name;
     int schoolYear;
     int height;

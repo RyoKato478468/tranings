@@ -13,11 +13,11 @@ public class T_User extends BaseTable{
 
     @Id
     @NotNull
-    public Long id;
+    public int id;
 
     @NotNull
     public String name;
-    public int schoolYear;   //学年
+    public int schoolYear;
     public int height;
     public String likeFood;
 
