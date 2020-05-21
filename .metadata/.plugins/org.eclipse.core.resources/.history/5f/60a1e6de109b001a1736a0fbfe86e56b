@@ -1,0 +1,24 @@
+package junit.tutorial;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class CalculatorTest {
+	@Test
+	public void maltiplicationで5と2の乗算結果が取得できる() throws Exception {
+		Calculator sut = new Calculator();
+		int expected = 10;
+		int acutual = sut.maltiplication(5, 2);
+		assertThat(acutual, is(expected));
+    }
+	
+	@Test
+	public void divisionで5と8の乗算結果を表示できる() throws Exception{
+		
+		Calculator sut = new Calculator();
+		int expected = 
+		
+	}
+}

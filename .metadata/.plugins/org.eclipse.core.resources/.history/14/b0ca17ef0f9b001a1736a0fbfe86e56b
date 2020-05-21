@@ -1,0 +1,12 @@
+package junit.tutorial;
+
+public class Calculator {
+	
+    public int maltiplicationで5と2のじょうさんけっｋ(int x,int y) {
+        return x * y;
+    }
+
+    public int division(int x,int y) {
+        return x / y;
+    }
+}

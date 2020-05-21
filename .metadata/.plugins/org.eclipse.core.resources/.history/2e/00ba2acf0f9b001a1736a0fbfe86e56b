@@ -1,0 +1,19 @@
+package junit.tutorial;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Calculator {
+	
+	
+    public int maltiplicationで5と2の乗算結果が表示できる(int x,int y) throws Exception {
+    	Calculator sut = new Calculator();
+        return x * y;
+    }
+
+    public int division(int x,int y) {
+        return x / y;
+    }
+}

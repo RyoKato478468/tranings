@@ -1,0 +1,17 @@
+INDEX VERSION 1.131+/home/ryo/workspace/traning/.metadata/.plugins/org.eclipse.jdt.core
+3738510636.index
+3740151695.index
+2854309935.index
+726526850.index
+3300862029.index
+3825856300.index
+1478969521.index
+3553376016.index
+1325953794.index
+624511797.index
+2317555625.index
+1704499777.index
+1075598747.index
+646308851.index
+2323919703.index
+783005032.index
