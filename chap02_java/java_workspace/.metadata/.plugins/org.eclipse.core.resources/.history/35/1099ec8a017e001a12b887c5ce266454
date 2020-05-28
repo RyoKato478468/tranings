@@ -1,0 +1,9 @@
+package ensyu16;
+
+public class ZipData {
+    public String pref;
+    public String data
+    public String town;
+    public String city;
+    public String fullAddress;
+}

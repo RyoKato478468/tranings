@@ -1,0 +1,44 @@
+package ensyu16;
+//Main.java
+
+//import
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.awt.Window.Type;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.Buffer;
+import java.util.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.List;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
+
+public class Main {
+  public static void main(String[] args) throws IOException{
+      Scanner sc = new Scanner(System.in);
+
+      System.out.println("郵便番号を入力してください");
+      String inputZipcode = sc.nextLine();
+
+      //入力された郵便番号の情報を取得
+      URL url = new URL("https://api.zipaddress.net/?zipcode=" + inputZipcode);
+      HttpURLConnection con = (HttpURLConnection) url.openConnection();
+      con.connect();
+      BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(),"utf-8"));
+      String json = in.readLine();
+      System.out.println(json);
+
+      in.close();
+      con.disconnect();
+
+      Gson gson = new Gson();
+      //Type listType = new TypeToken<List<data>>(){}.getType();
+      ZipData zipData = gson.fromJson(json,ZipData.class);
+
+      System.out.println("住所:" + zipData.data.get("fullAddress"));
+      
+  }
+}

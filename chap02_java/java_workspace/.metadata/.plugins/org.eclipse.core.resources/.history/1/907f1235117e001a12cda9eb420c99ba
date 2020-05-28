@@ -1,0 +1,9 @@
+package ensyu16;
+
+import java.util.List;
+import java.util.Map;
+
+public class ZipData {
+	public String code;
+	public Map<String,Data> data;
+}

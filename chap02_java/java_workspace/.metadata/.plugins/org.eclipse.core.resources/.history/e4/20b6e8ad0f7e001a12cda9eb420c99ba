@@ -1,0 +1,6 @@
+package ensyu16;
+
+public class Data {
+	public String DataType;
+	public String value;
+}

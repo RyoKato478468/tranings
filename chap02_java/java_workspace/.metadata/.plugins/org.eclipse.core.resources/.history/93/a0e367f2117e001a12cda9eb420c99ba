@@ -1,0 +1,32 @@
+package ensyu16;
+//Main.java
+
+//import
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.*;
+import com.google.gson.Gson;
+
+public class Main {
+  public static void main(String[] args) throws IOException{
+      Scanner sc = new Scanner(System.in);
+
+      System.out.println("郵便番号を入力してください");
+      String inputZipcode = sc.nextLine();
+
+      //入力された郵便番号の情報を取得
+      URL url = new URL("https://api.zipaddress.net/?zipcode=" + inputZipcode);
+      HttpURLConnection con = (HttpURLConnection) url.openConnection();
+      con.connect();
+      BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(),"utf-8"));
+      String json = in.readLine();	//受け取った情報を文字列に変換	
+      in.close();
+      con.disconnect();
+     
+      Gson gson = new Gson();
+      ZipData zipData = gson.fromJson(json,ZipData.class);	//パース
+
+      System.out.println("住所:" + zipData.data.get("fullAddress"));
+  }
+}

@@ -1,0 +1,6 @@
+package ensyu16;
+
+public class ZipData {
+    public String code;
+    public List<Data> data;
+}

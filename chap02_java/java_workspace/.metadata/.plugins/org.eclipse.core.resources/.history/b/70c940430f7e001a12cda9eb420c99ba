@@ -1,0 +1,14 @@
+package ensyu16;
+
+import java.util.List;
+
+public class ZipData {
+	public String code;
+	pu\blic String data;
+	//public List<String> data;
+    /*public String pref;
+    public String address;
+    public String town;
+    public String city;*/
+    //public String fullAddress;
+}
