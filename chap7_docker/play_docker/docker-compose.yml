@@ -5,5 +5,4 @@ services:
     image: centplay
     container_name: centplaytest1
     ports:
-      - 9000:9000
-    tty: true
+      - 8080:9000
